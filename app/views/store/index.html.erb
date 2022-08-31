@@ -1,2 +1,20 @@
-<h1>Store#index</h1>
-<p>Find me in app/views/store/index.html.erb</p>
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+  <h1 style="margin-left: 30px; margin-top: 10px;">Your Pragmatic Catalog</h1>
+<% @products.each do |product| %>
+  <div class="entry">
+    <div class="row">
+      <div class="col-md-auto">
+        <%=  image_tag(product.image_url , class: "mage")%>
+      </div>
+      <div class="col-md-5 col-10 col-xs-10 col-sm-9" style="margin-left: 25px;">
+        <h3><%= product.title %></h3>
+        <%= sanitize(product.description) %>
+        <div class="price_line">
+          <span class="price"><%= product.price %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
