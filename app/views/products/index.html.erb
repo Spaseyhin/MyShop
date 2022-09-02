@@ -1,25 +1,28 @@
-<h1>Listing products</h1>
+<h1 class="header">Listing products <%= link_to 'New product', new_product_path, class: "btn btn-primary" %></h1>
 <table>
-<% @products.each do |product| %>
-  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-    <td>
-<%= image_tag(product.image_url, class: 'list_image') %>
-</td>
-  <td class="list_description">
-    <dl>
-    <dt><%= product.title %></dt>
-    <dd><%= truncate(strip_tags(product.description),
-    length: 80) %></dd>
-    </dl>
-  </td>
-  <td class="list_actions">
-    <%= link_to 'Show', product %><br/>
-    <%= link_to 'Edit', edit_product_path(product) %><br/>
-    <%= link_to 'Destroy', product, method: :delete,
-    data: { confirm: 'Are you sure?' } %>
-  </td>
-  </tr>
-<% end %>
+  <% @products.each do |product| %>
+    <div class="row">          
+           <div class="col-md-auto">
+
+            <%= image_tag(product.image_url, class: 'mage') %>
+
+          </div>
+
+          <div class="col-md-5 col-10 col-xs-10 col-sm-9" style="margin-left: 25px;">
+
+
+                <%= product.title %>
+                <%= truncate(strip_tags(product.description),length: 200) %>
+                <br>
+                <br>
+              <%= link_to 'Show', product , class: "btn btn-primary"%>
+              <%= link_to 'Edit', edit_product_path(product) , class: "btn btn-primary"%>
+              <%= link_to 'Destroy', product, method: :delete, 
+                data: { confirm: 'Are you sure?' }, class: "btn btn-primary"%>
+
+        </div>
+      </div>
+  <% end %>
 </table>
-<br />
-<%= link_to 'New product', new_product_path %>
+
+

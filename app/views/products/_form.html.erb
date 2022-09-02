@@ -1,4 +1,5 @@
-<%= form_with(model: product) do |form| %>
+<center>
+<%= form_with(model: product) do |f| %>
   <% if product.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -11,27 +12,14 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
+    <%= f.text_field  :title, style: "display: block", class: "form-control input_new_product",placeholder: "Title" %>
+ 
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description, rows: 7 %>
-  </div>
-
-  <div>
-    <%= form.label :image_url, style: "display: block" %>
-    <%= form.text_field :image_url %>
-  </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= f.text_area :description, class: "form-control input_new_product",placeholder: "Description" , rows: 7%>
+    <%= f.text_field  :image_url, class: "form-control input_new_product",placeholder: "Image" %>
+    <%= f.text_field :price, class: "form-control input_new_product",placeholder: "Price" %>
+    <br>
+    <%= link_to "Back to products", products_path , class: "btn btn-primary"%> <%= f.submit "Publish", class: "btn btn-primary", style: "margin-left: 115px" %>
   </div>
 <% end %>
+</center>
