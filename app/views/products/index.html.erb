@@ -11,8 +11,9 @@
           <div class="col-md-5 col-10 col-xs-10 col-sm-9" style="margin-left: 25px;">
 
 
-                <%= product.title %>
+                <h1><%= product.title %></h1>
                 <%= truncate(strip_tags(product.description),length: 200) %>
+                <p>Price: <%= product.price %></p>  
                 <br>
                 <br>
               <%= link_to 'Show', product , class: "btn btn-primary"%>
