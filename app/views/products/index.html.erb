@@ -13,7 +13,7 @@
 
                 <h1><%= product.title %></h1>
                 <%= truncate(strip_tags(product.description),length: 200) %>
-                <p>Price: <%= product.price %></p>  
+                <p><%= number_to_currency(product.price) %></p>  
                 <br>
                 <br>
               <%= link_to 'Show', product , class: "btn btn-primary"%>
