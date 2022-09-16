@@ -3,8 +3,9 @@
 <% end %>
 
 <h1 class="header">Your Pragmatic Catalog</h1>
-
-<% @products.each do |product| %>
+<% cache ['store', Product.latest] do %>
+  <% @products.each do |product| %>
+  <% cache ['entry', product] do %>
     <div class="row">
       <div class="col-md-auto">
         <%=  image_tag(product.image_url , class: "mage")%>
@@ -17,4 +18,6 @@
         </div>
       </div>
     </div>
+  <% end %>
+  <% end %>
 <% end %>
